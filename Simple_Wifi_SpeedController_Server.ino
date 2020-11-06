@@ -17,7 +17,7 @@
 #include <ESP8266WiFi.h>
 
 #define WIFI_CHANNEL 1	 // The Wifi Channel to use
-#define ESC_PWM_PIN D1  // The Wemos only has 1 analog port A0
+#define ESC_PWM_PIN D1   // The pin to connect ESC PWM
 
 #define ESC_LOW_MS 1000
 #define ESC_MID_MS 1500
@@ -70,9 +70,6 @@ void setup() {
 
 	// Set the role of the Server
 	esp_now_set_self_role(ESP_NOW_ROLE_COMBO);
-
-	// Add peer
-//	esp_now_add_peer(masterAddress, ESP_NOW_ROLE_COMBO, WIFI_CHANNEL, NULL, 0);
 
 	// Attach the ESC
 	vesc.attach(ESC_PWM_PIN);
